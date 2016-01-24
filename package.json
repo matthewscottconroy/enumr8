@@ -1,0 +1,70 @@
+{
+  "name": "enumr8",
+  "version": "1.0.0",
+  "description": "A javascript module for defining custom enum types and generating instances of that type.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewscottconroy/enumr8.git"
+  },
+  "keywords": [
+    "enumr8",
+    "enum",
+    "data",
+    "structure",
+    "type",
+    "instance",
+    "add",
+    "subtract",
+    "algebra"
+  ],
+  "author": "Matthew Scott Conroy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthewscottconroy/enumr8/issues"
+  },
+  "homepage": "https://github.com/matthewscottconroy/enumr8#readme",
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "no-unreachable": 2,
+      "no-unexpected-multiline": 2,
+      "semi": [
+        2,
+        "always"
+      ],
+      "comma-dangle": [
+        2,
+        "never"
+      ],
+      "no-cond-assign": [
+        2,
+        "always"
+      ],
+      "no-eval": 2,
+      "no-extra-semi": 2,
+      "strict": [
+        2,
+        "global"
+      ],
+      "eqeqeq": 2,
+      "default-case": 2,
+      "no-fallthrough": 2,
+      "no-irregular-whitespace": 2,
+      "no-func-assign": 2,
+      "no-duplicate-case": 2,
+      "quote-props": [
+        2,
+        "always"
+      ]
+    }
+  },
+  "devDependencies": {
+  }
+}
