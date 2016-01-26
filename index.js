@@ -248,6 +248,16 @@ function Enum(source, nameOrIsWrapped1, nameOrIsWrapped2, compare) {
     }
   }
 
+  function eQuotient(divisor){
+    return Math.floor(labels.length / divisor);
+  }
+
+  function eModulo(divisor){
+    return labels.length % divisor;
+  }
+
+
+
 
 
 
