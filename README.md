@@ -59,22 +59,24 @@ console.log("Today is now " + today.getValue()); //Thursday
 //HEXADECIMAL EXAMPLE//////////////////////////////////////////////////////////
 
 //define an enum type consisting of the symbols for hexadecimal
-let Hexadecimal = createEnumType({  "0" : 0,
-                                    "1" : 1,
-                                    "2" : 2,
-                                    "3" : 3,
-                                    "4" : 4,
-                                    "5" : 5,
-                                    "6" : 6,
-                                    "7" : 7,
-                                    "8" : 8,
-                                    "9" : 9,
-                                    "a" : 10,
-                                    "b" : 11,
-                                    "c" : 12,
-                                    "d" : 13,
-                                    "e" : 14,
-                                    "f" : 15}, "Hexadecimal", true);
+let HexadecimalDigit = createEnumType({   "0" : 0,
+                                          "1" : 1,
+                                          "2" : 2,
+                                          "3" : 3,
+                                          "4" : 4,
+                                          "5" : 5,
+                                          "6" : 6,
+                                          "7" : 7,
+                                          "8" : 8,
+                                          "9" : 9,
+                                          "a" : 10,
+                                          "b" : 11,
+                                          "c" : 12,
+                                          "d" : 13,
+                                          "e" : 14,
+                                          "f" : 15}, "Hexadecimal", true);
+
+let HexadecimalNumber =
 
 function hexParser(hexString){
 
@@ -118,6 +120,8 @@ let Foot = createEnumType({ "": 0,
                             "2 feet": 2,
                           });
 
+
+
 //DICE////////////////////////////////////////////////////////////////////////
 
 let Dice = createEnumType({"One":1,"Two":2,"Three":3,"Four":4,"Five":5,"Six":6});
@@ -154,27 +158,137 @@ console.log("The green die is now " greenDie.getLabel() + ".");
 
 printDiceTotal(blueDie, greenDie);
 
-//FRACTIONS EXAMPLE////////////////////////////////////////////////////////////
+
+//Caesar Cipher////////////////////////////////////////////////////////////////
+
+let Alphabet = createEnumType(["a","b","c","d","e","f","g","h","i","j","k",
+                              "l","m","n","o","p","q","r","s","t","u","v",
+                              "w","x","y","z"]);
+
+//functional cypher
+function convertStrToEnum(str){
+
+
+  return enum;
+}
+
+function convertEnumToStr(enum){
+
+  return str;
+}
+
+function shiftMsg(enum, integer){
+
+    return enum;
+}
+
+function cyphon(str, shiftVal){
+  return convertEnumToStr(shiftMsg(converStrToEnum(str), shiftVal));
+}
+
+//Testing...
+let encodedMsg = cyphon("Time flies like an arrow.", 4);
+console.log(encodedMsg);
+
+
+//object-oriented cypher
+function cypher(message){
+  let cyph = {}
+  let enum = convertStringToEnum(message);
+  let msg = message
+
+  function getOriginalMessage(){
+    return msg;
+  }
+
+  function shift(n){
+      shiftMsg(enum, n);
+  }
+
+  function getEncryptedMessage(){
+    return convertEnumToStr(enum);
+  }
+
+  cyph.getOriginalMessage = getOriginalMessage;
+  cyph.shift = shift;
+  cyph.getEncryptedMessage = getEncryptedMessage;
+
+  return cyph;
+}
+
+
+
+let c = cypher("When all you have is a hammer, everything looks like a nail.");
+console.log(c.getOriginalMessage());
+
+c.shift(-27);
+console.log(c.getEncryptedMessage());
+console.log(c.getOriginalMessage());
+
 
 
 //PROPOSITIONAL LOGIC EXAMPLE//////////////////////////////////////////////////
 
-//define an enum type for propositions
-let Proposition = createEnumType({"false" : false,
-                                  "true" : true}, "Proposition", true)
+//define a type for a propositions
+const Proposition = function(statement, truthValue){
+  const s = statement;
+  const t = truthValue;
+  const obj = {};
+
+  obj.statement = s;
+  obj.truthValue = t;
+
+  Object.freeze(obj);
+
+  return obj;
+}
+
+const Sentence = function(operatorString, leftProposition, rightProposition){
+    const obj = {};
+
+    obj.operator = operatorString;
+    obj.left = leftProposition;
+    obj.right = rightProposition;
+
+    Object.freeze(obj);
+
+    return obj;
+}
 
 //define an enum type consisting of binary logic operators and their truth tables
-let BinaryOperator = createEnumType({ "^" : [0,0,0,1],
-                                "v" : [1,1,1,0],
+const BinaryOperator = createEnumType({
+                                "": [],
+                                "F" : [0,0,0,0],
+                                "^" : [0,0,0,1],
+                                "~->": [0,0,1,0],
+                                "L": [0,0,1,1],
+                                "~<-":[0,1,0,0],
+                                "R": [0,1,0,1],
+                                "~=": [0,1,1,0],
+                                "v" : [0,1,1,1],
+                                "~v": [1,0,0,0],
+                                "<->": [1,0,0,1],
+                                "~R": [1,0,1,0],
+                                "<-": [1,0,1,1],
+                                "~L": [1,1,0,0],
                                 "->" : [1,1,0,1],
-                                "<->" : [1,0,0,1]
+                                "~^" : [1,1,1,0],
+                                "T" : [1,1,1,1]
                               });
 
-let p = Proposition.eCreate();
+function evaluate(operatorString, leftProposition, rightProposition){
+  const index = leftProposition.truthValue + rightProposition.truthValue;
+  const operation = BinaryOperator.eValue(operatorString);
 
-function apply(){
-
+  return operation[index];
 }
+
+let v = Proposition("All Cretans like rainbows.", false);
+let w = Proposition("All Cretans hate rainbows.", true);
+let x = Proposition("All Cretans are liars.", true);
+let y = Proposition("Socrates is a Cretan.", false);
+let z = Proposition("All Cretans say they like rainbows.", true);
+
 
 
 
