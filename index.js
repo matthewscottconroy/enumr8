@@ -123,6 +123,10 @@ function Enum(source, nameOrIsWrapped1, nameOrIsWrapped2, compare) {
     return labels[eIndexOfValue(value)];
   }
 
+  function eValueOfLabel(label){
+    return dictionary[label];
+  }
+
   function eLabelOfIndex(index) {
 
     var returnValue = null;
@@ -159,6 +163,8 @@ function Enum(source, nameOrIsWrapped1, nameOrIsWrapped2, compare) {
 
     return returnValue;
   }
+
+
 
   function eValueOfIndex(index) {
     if (isInteger(index)) {
@@ -518,6 +524,7 @@ function Enum(source, nameOrIsWrapped1, nameOrIsWrapped2, compare) {
 
 
   enumTypeDefinition.eLabelOfValue = eLabelOfValue;
+  enumTypeDefinition.eValueOfLabel = eValueOfLabel;
   enumTypeDefinition.eLabelOfIndex = eLabelOfIndex;
   enumTypeDefinition.eValue = eValue;
   enumTypeDefinition.eValueOfIndex = eValueOfIndex;

@@ -1,6 +1,6 @@
 {
   "name": "enumr8",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A javascript module for defining custom enum types and generating instances of that type.",
   "main": "index.js",
   "scripts": {
